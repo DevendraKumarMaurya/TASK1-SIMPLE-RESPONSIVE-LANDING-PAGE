@@ -4,16 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIMPLE RESPONSIVE LANDING PAGE</title>
+    <meta
+      name="description"
+      content="LandingLabs - Advance your skills with modern courses, mentorship, and a vibrant learning community."
+    />
+    <meta
+      name="keywords"
+      content="LandingLabs, landing page, education, courses, mentorship, learning"
+    />
+    <meta name="author" content="LandingLabs Team" />
+    <link rel="icon" href="./assets/Landinglabs-Logo.png" type="image/png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <div id="headerContent">
-        <img src="./assets/DRS Universe.png" alt="DRS Universe" class="logo" />
-        <h1>DRS Universe</h1>
+        <a href="#hero" class="logo-link">
+          <img src="./assets/Landinglabs-Logo.png" alt="LandingLabs" class="logo" />
+          <span class="site-title">LandingLabs</span>
+        </a>
       </div>
+      <button id="navToggle" aria-label="Open navigation" class="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <nav>
-        <ul>
+        <ul class="row-list" id="mainNav">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
@@ -22,7 +39,126 @@
       </nav>
     </header>
     <main>
-        <div style="height: 10000px;">dfsf</div>
+      <section id="hero" class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="hero-offer">Get 30% off on first enroll</span>
+            <h1>Advance your skills with LandingLabs</h1>
+            <p>
+              Build skills with our courses and mentors from world-class
+              companies.
+            </p>
+            <ul class="hero-features">
+              <li>Flexible</li>
+              <li>Learning path</li>
+              <li>Community</li>
+            </ul>
+            <a href="#services" class="cta-btn">Explore Courses</a>
+          </div>
+        </div>
+      </section>
+      <section id="home" class="main-section align-center">
+        <img src="./assets/Landinglabs-Logo.png" alt="LandingLabs Logo" class="home-logo" />
+        <h2>Welcome to LandingLabs</h2>
+        <p>Trusted by companies of all sizes</p>
+        <div class="trusted-logos">
+          <img src="./assets/svgs/facebook-svg.svg" alt="Company 1" />
+          <img src="./assets/svgs/twitter-svg.svg" alt="Company 2" />
+          <img src="./assets/svgs/instagram-svg.svg" alt="Company 3" />
+          <img src="./assets/svgs/linkedin-svg.svg" alt="Company 4" />
+        </div>
+      </section>
+      <section id="about" class="main-section align-center">
+        <h2>About LandingLabs</h2>
+        <p>
+          LandingLabs is dedicated to providing top-notch learning experiences
+          and solutions. Our mentors and courses are designed to help you grow
+          and succeed in your career.
+        </p>
+      </section>
+      <section id="services" class="main-section align-center">
+        <h2>Our Services</h2>
+        <div class="services-list">
+          <div class="service-card">
+            <h3>Full Stack Development</h3>
+            <p>
+              Master modern web technologies and frameworks with hands-on
+              projects.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>UI/UX Design</h3>
+            <p>
+              Learn design systems, prototyping, and user experience best
+              practices.
+            </p>
+          </div>
+          <div class="service-card">
+            <h3>Mentorship</h3>
+            <p>
+              Get guidance from industry experts to accelerate your learning
+              journey.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="main-section align-center">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to get started? Reach out to us!</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+      </section>
     </main>
+
+    <footer>
+      <div id="footerContent">
+        <h3>LandingLabs.</h3>
+        <ul class="social-list">
+          <li>
+            <a href="https://www.facebook.com"><img src="./assets/svgs/facebook-svg.svg" alt="Facebook" class="social-icon" /></a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com"><img src="./assets/svgs/twitter-svg.svg" alt="Twitter" class="social-icon" /></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com"><img src="./assets/svgs/instagram-svg.svg" alt="Instagram" class="social-icon" /></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com"><img src="./assets/svgs/linkedin-svg.svg" alt="LinkedIn" class="social-icon" /></a>
+          </li>
+        </ul>
+        <p class="links-title">Links</p>
+        <ul class="column-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <p>&copy; 2025 LandingLabs. All rights reserved.</p>
+    </footer>
   </body>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const mainNav = document.getElementById("mainNav");
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mainNav.classList.toggle("show");
+    });
+    document.addEventListener("click", (e) => {
+      if (
+        mainNav.classList.contains("show") &&
+        !mainNav.contains(e.target) &&
+        e.target !== navToggle &&
+        !navToggle.contains(e.target)
+      ) {
+        mainNav.classList.remove("show");
+      }
+    });
+  </script>
 </html>
